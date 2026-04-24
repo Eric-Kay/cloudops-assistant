@@ -3,6 +3,7 @@ project_name     = "cloudops-assistant"
 app_image        = "603108265570.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:v2"
 bedrock_model_id = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
 app_username     = "admin"
+ui_image         = "603108265570.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant-ui:latest"
 
 vpc_id = "vpc-08fcfd0487e79fd90"
 

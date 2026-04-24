@@ -29,3 +29,11 @@ output "jwt_secret_arn" {
 output "app_password_secret_arn" {
   value = aws_secretsmanager_secret.app_password.arn
 }
+
+output "ui_ecr_repository_url" {
+  value = aws_ecr_repository.ui.repository_url
+}
+
+output "ui_url" {
+  value = "http://${aws_lb.app.dns_name}"
+}

@@ -10,6 +10,15 @@ resource "aws_ecr_repository" "app" {
   }
 }
 
+resource "aws_ecr_repository" "ui" {
+  name                 = "${var.project_name}-ui"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
+
 resource "aws_s3_bucket" "uploads" {
   bucket = "${var.project_name}-uploads-${data.aws_caller_identity.current.account_id}"
 }
@@ -51,15 +60,13 @@ resource "aws_iam_role" "ecs_task_execution_role" {
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "ecs-tasks.amazonaws.com"
-        }
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "ecs-tasks.amazonaws.com"
       }
-    ]
+    }]
   })
 }
 
@@ -73,18 +80,16 @@ resource "aws_iam_policy" "ecs_execution_secrets" {
 
   policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Action = [
-          "secretsmanager:GetSecretValue"
-        ]
-        Resource = [
-          aws_secretsmanager_secret.jwt_secret.arn,
-          aws_secretsmanager_secret.app_password.arn
-        ]
-      }
-    ]
+    Statement = [{
+      Effect = "Allow"
+      Action = [
+        "secretsmanager:GetSecretValue"
+      ]
+      Resource = [
+        aws_secretsmanager_secret.jwt_secret.arn,
+        aws_secretsmanager_secret.app_password.arn
+      ]
+    }]
   })
 }
 
@@ -98,15 +103,13 @@ resource "aws_iam_role" "ecs_task_role" {
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "ecs-tasks.amazonaws.com"
-        }
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "ecs-tasks.amazonaws.com"
       }
-    ]
+    }]
   })
 }
 
@@ -137,7 +140,6 @@ resource "aws_iam_policy" "app_task_policy" {
         ]
         Resource = "*"
       },
-
       {
         Sid    = "MarketplaceAccess"
         Effect = "Allow"
@@ -193,6 +195,13 @@ resource "aws_security_group" "ecs_service" {
     security_groups = [aws_security_group.alb.id]
   }
 
+  ingress {
+    from_port       = var.ui_container_port
+    to_port         = var.ui_container_port
+    protocol        = "tcp"
+    security_groups = [aws_security_group.alb.id]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -226,6 +235,23 @@ resource "aws_lb_target_group" "app" {
   }
 }
 
+resource "aws_lb_target_group" "ui" {
+  name        = replace(substr("${var.project_name}-ui-tg", 0, 32), "_", "-")
+  port        = var.ui_container_port
+  protocol    = "HTTP"
+  vpc_id      = var.vpc_id
+  target_type = "ip"
+
+  health_check {
+    path                = "/"
+    matcher             = "200-399"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 3
+  }
+}
+
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.app.arn
   port              = 80
@@ -233,7 +259,28 @@ resource "aws_lb_listener" "http" {
 
   default_action {
     type             = "forward"
+    target_group_arn = aws_lb_target_group.ui.arn
+  }
+}
+
+resource "aws_lb_listener_rule" "api" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 10
+
+  action {
+    type             = "forward"
     target_group_arn = aws_lb_target_group.app.arn
+  }
+
+  condition {
+    path_pattern {
+      values = [
+        "/api/*",
+        "/health",
+        "/docs",
+        "/openapi.json"
+      ]
+    }
   }
 }
 
@@ -260,6 +307,25 @@ resource "aws_ecs_task_definition" "app" {
   })
 }
 
+resource "aws_ecs_task_definition" "ui" {
+  family                   = "${var.project_name}-ui"
+  network_mode             = "awsvpc"
+  requires_compatibilities = ["FARGATE"]
+  cpu                      = tostring(var.container_cpu)
+  memory                   = tostring(var.container_memory)
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  task_role_arn            = aws_iam_role.ecs_task_role.arn
+
+  container_definitions = templatefile("${path.module}/task-definitions/ui.json.tpl", {
+    project_name   = var.project_name
+    image          = var.ui_image
+    container_port = var.ui_container_port
+    aws_region     = var.aws_region
+    log_group      = aws_cloudwatch_log_group.app.name
+    api_base       = "http://${aws_lb.app.dns_name}/api"
+  })
+}
+
 resource "aws_ecs_service" "app" {
   name            = "${var.project_name}-service"
   cluster         = aws_ecs_cluster.this.id
@@ -281,8 +347,35 @@ resource "aws_ecs_service" "app" {
 
   depends_on = [
     aws_lb_listener.http,
+    aws_lb_listener_rule.api,
     aws_iam_role_policy_attachment.ecs_execution_managed,
     aws_iam_role_policy_attachment.ecs_execution_secrets_attach,
     aws_iam_role_policy_attachment.app_task_policy_attach
+  ]
+}
+
+resource "aws_ecs_service" "ui" {
+  name            = "${var.project_name}-ui-service"
+  cluster         = aws_ecs_cluster.this.id
+  task_definition = aws_ecs_task_definition.ui.arn
+  desired_count   = var.desired_count
+  launch_type     = "FARGATE"
+
+  network_configuration {
+    subnets          = var.public_subnet_ids
+    security_groups  = [aws_security_group.ecs_service.id]
+    assign_public_ip = true
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.ui.arn
+    container_name   = "${var.project_name}-ui"
+    container_port   = var.ui_container_port
+  }
+
+  depends_on = [
+    aws_lb_listener.http,
+    aws_lb_listener_rule.api,
+    aws_iam_role_policy_attachment.ecs_execution_managed
   ]
 }

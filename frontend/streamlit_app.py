@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_BASE = "http://localhost:8000/api"
+API_BASE = "http://cloudops-assistant-1285171244.us-east-1.elb.amazonaws.com/api"
 
 st.set_page_config(page_title="CloudOps Assistant", layout="wide")
 st.title("CloudOps Assistant")

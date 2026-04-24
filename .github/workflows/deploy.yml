@@ -11,10 +11,13 @@ permissions:
   contents: read
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: cloudops-assistant
+  BACKEND_ECR_REPOSITORY: cloudops-assistant
+  UI_ECR_REPOSITORY: cloudops-assistant-ui
   ECS_CLUSTER: cloudops-assistant-cluster
-  ECS_SERVICE: cloudops-assistant-service
+  BACKEND_ECS_SERVICE: cloudops-assistant-service
+  UI_ECS_SERVICE: cloudops-assistant-ui-service
 
 jobs:
   deploy:
@@ -38,15 +41,25 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Docker image
+      - name: Build backend Docker image
         run: |
-          IMAGE_URI=${{ steps.aws.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
-          docker build -f infra/Dockerfile -t $IMAGE_URI .
-          echo "IMAGE_URI=$IMAGE_URI" >> "$GITHUB_ENV"
+          BACKEND_IMAGE_URI=${{ steps.aws.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.BACKEND_ECR_REPOSITORY }}:${{ github.sha }}
+          docker build -f infra/Dockerfile -t $BACKEND_IMAGE_URI .
+          echo "BACKEND_IMAGE_URI=$BACKEND_IMAGE_URI" >> "$GITHUB_ENV"
 
-      - name: Push Docker image
+      - name: Push backend Docker image
         run: |
-          docker push $IMAGE_URI
+          docker push $BACKEND_IMAGE_URI
+
+      - name: Build UI Docker image
+        run: |
+          UI_IMAGE_URI=${{ steps.aws.outputs.account_id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.UI_ECR_REPOSITORY }}:${{ github.sha }}
+          docker build -f frontend/Dockerfile -t $UI_IMAGE_URI .
+          echo "UI_IMAGE_URI=$UI_IMAGE_URI" >> "$GITHUB_ENV"
+
+      - name: Push UI Docker image
+        run: |
+          docker push $UI_IMAGE_URI
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
@@ -57,7 +70,7 @@ jobs:
 
       - name: Terraform fmt
         working-directory: terraform
-        run: terraform fmt -check
+        run: terraform fmt -recursive
 
       - name: Terraform validate
         working-directory: terraform
@@ -67,21 +80,30 @@ jobs:
         working-directory: terraform
         run: |
           terraform apply -auto-approve \
-            -var="app_image=${IMAGE_URI}"
+            -var="app_image=${BACKEND_IMAGE_URI}" \
+            -var="ui_image=${UI_IMAGE_URI}"
 
-      - name: Force ECS deployment
+      - name: Force ECS backend deployment
         run: |
           aws ecs update-service \
             --cluster $ECS_CLUSTER \
-            --service $ECS_SERVICE \
+            --service $BACKEND_ECS_SERVICE \
             --force-new-deployment \
             --region $AWS_REGION
 
-      - name: Wait for ECS service to stabilize
+      - name: Force ECS UI deployment
+        run: |
+          aws ecs update-service \
+            --cluster $ECS_CLUSTER \
+            --service $UI_ECS_SERVICE \
+            --force-new-deployment \
+            --region $AWS_REGION
+
+      - name: Wait for ECS services to stabilize
         run: |
           aws ecs wait services-stable \
             --cluster $ECS_CLUSTER \
-            --services $ECS_SERVICE \
+            --services $BACKEND_ECS_SERVICE $UI_ECS_SERVICE \
             --region $AWS_REGION
 
       - name: Print app URL

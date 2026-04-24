@@ -60,3 +60,13 @@ variable "app_password_secret_name" {
   type    = string
   default = "cloudops-assistant/app-password"
 }
+
+variable "ui_image" {
+  type        = string
+  description = "Full ECR image URI for Streamlit UI"
+}
+
+variable "ui_container_port" {
+  type    = number
+  default = 8501
+}
