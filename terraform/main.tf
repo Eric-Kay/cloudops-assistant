@@ -139,15 +139,15 @@ resource "aws_iam_policy" "app_task_policy" {
       },
 
       {
-  Sid    = "MarketplaceAccess"
-  Effect = "Allow"
-  Action = [
-    "aws-marketplace:ViewSubscriptions",
-    "aws-marketplace:Subscribe",
-    "aws-marketplace:Unsubscribe"
-  ]
-  Resource = "*"
-}
+        Sid    = "MarketplaceAccess"
+        Effect = "Allow"
+        Action = [
+          "aws-marketplace:ViewSubscriptions",
+          "aws-marketplace:Subscribe",
+          "aws-marketplace:Unsubscribe"
+        ]
+        Resource = "*"
+      }
     ]
   })
 }
