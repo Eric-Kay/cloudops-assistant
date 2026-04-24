@@ -1,0 +1,5 @@
+ECS Service Failure Troubleshooting
+
+1. Check CloudWatch logs
+2. Verify IAM role permissions
+3. Ensure container healthcheck passes

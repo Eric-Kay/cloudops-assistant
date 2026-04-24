@@ -1,0 +1,522 @@
+{
+    "service": {
+        "serviceArn": "arn:aws:ecs:us-east-1:603108265570:service/cloudops-assistant-cluster/cloudops-assistant-service",
+        "serviceName": "cloudops-assistant-service",
+        "clusterArn": "arn:aws:ecs:us-east-1:603108265570:cluster/cloudops-assistant-cluster",
+        "loadBalancers": [
+            {
+                "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b",
+                "containerName": "cloudops-assistant",
+                "containerPort": 8000
+            }
+        ],
+        "serviceRegistries": [],
+        "status": "ACTIVE",
+        "desiredCount": 1,
+        "runningCount": 1,
+        "pendingCount": 0,
+        "launchType": "FARGATE",
+        "platformVersion": "LATEST",
+        "platformFamily": "Linux",
+        "taskDefinition": "arn:aws:ecs:us-east-1:603108265570:task-definition/cloudops-assistant:7",
+        "deploymentConfiguration": {
+            "deploymentCircuitBreaker": {
+                "enable": false,
+                "rollback": false
+            },
+            "maximumPercent": 200,
+            "minimumHealthyPercent": 100
+        },
+        "deployments": [
+            {
+                "id": "ecs-svc/0755026891881573606",
+                "status": "PRIMARY",
+                "taskDefinition": "arn:aws:ecs:us-east-1:603108265570:task-definition/cloudops-assistant:7",
+                "desiredCount": 0,
+                "pendingCount": 0,
+                "runningCount": 0,
+                "failedTasks": 0,
+                "createdAt": "2026-04-22T12:14:28.667000+01:00",
+                "updatedAt": "2026-04-22T12:14:28.667000+01:00",
+                "launchType": "FARGATE",
+                "platformVersion": "1.4.0",
+                "platformFamily": "Linux",
+                "networkConfiguration": {
+                    "awsvpcConfiguration": {
+                        "subnets": [
+                            "subnet-096ad404115c60073",
+                            "subnet-080cbb322b43a125b"
+                        ],
+                        "securityGroups": [
+                            "sg-08eb5191ce580fac3"
+                        ],
+                        "assignPublicIp": "ENABLED"
+                    }
+                },
+                "rolloutState": "IN_PROGRESS",
+                "rolloutStateReason": "ECS deployment ecs-svc/0755026891881573606 in progress."
+            },
+            {
+                "id": "ecs-svc/9390846818596773000",
+                "status": "ACTIVE",
+                "taskDefinition": "arn:aws:ecs:us-east-1:603108265570:task-definition/cloudops-assistant:7",
+                "desiredCount": 1,
+                "pendingCount": 0,
+                "runningCount": 1,
+                "failedTasks": 0,
+                "createdAt": "2026-04-22T11:52:26.648000+01:00",
+                "updatedAt": "2026-04-22T11:55:36.095000+01:00",
+                "launchType": "FARGATE",
+                "platformVersion": "1.4.0",
+                "platformFamily": "Linux",
+                "networkConfiguration": {
+                    "awsvpcConfiguration": {
+                        "subnets": [
+                            "subnet-096ad404115c60073",
+                            "subnet-080cbb322b43a125b"
+                        ],
+                        "securityGroups": [
+                            "sg-08eb5191ce580fac3"
+                        ],
+                        "assignPublicIp": "ENABLED"
+                    }
+                },
+                "rolloutState": "COMPLETED",
+                "rolloutStateReason": "ECS deployment ecs-svc/9390846818596773000 completed."
+            }
+        ],
+        "roleArn": "arn:aws:iam::603108265570:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+        "events": [
+            {
+                "id": "817658e4-8961-47d4-a432-6611e33ddce2",
+                "createdAt": "2026-04-22T11:55:36.102000+01:00",
+                "message": "(service cloudops-assistant-service) has reached a steady state."
+            },
+            {
+                "id": "d1a5d998-66bf-467f-a754-6c857d523fb6",
+                "createdAt": "2026-04-22T11:55:36.101000+01:00",
+                "message": "(service cloudops-assistant-service) (deployment ecs-svc/9390846818596773000) deployment completed."
+            },
+            {
+                "id": "f9950214-59a4-4742-af7c-597eff8133f6",
+                "createdAt": "2026-04-22T11:54:34.109000+01:00",
+                "message": "(service cloudops-assistant-service, taskSet ecs-svc/4183377110762456205) has begun draining connections on 1 tasks."
+            },
+            {
+                "id": "304c0955-9fa0-448f-89b0-59663f5221a0",
+                "createdAt": "2026-04-22T11:54:34.105000+01:00",
+                "message": "(service cloudops-assistant-service) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "49d994e5-9b10-4e08-af5d-7bb1686012de",
+                "createdAt": "2026-04-22T11:54:24.647000+01:00",
+                "message": "(service cloudops-assistant-service) has stopped 1 running tasks: (task d45f78329859457aa9defd2d5a3e9b27)."
+            },
+            {
+                "id": "031761ab-05e4-4fe8-9415-243dabb063c1",
+                "createdAt": "2026-04-22T11:53:33.208000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "6d34f4e7-ac80-4ff5-8235-8f326679854f",
+                "createdAt": "2026-04-22T11:52:42.857000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 9cc463ed3e7841c3a320a67567153de9)."
+            },
+            {
+                "id": "e3ba7dce-6140-4c38-97b6-2938268d214e",
+                "createdAt": "2026-04-22T11:47:02.298000+01:00",
+                "message": "(service cloudops-assistant-service) has reached a steady state."
+            },
+            {
+                "id": "35de8916-cbc6-4631-8965-aa061d7b84b7",
+                "createdAt": "2026-04-22T11:47:02.297000+01:00",
+                "message": "(service cloudops-assistant-service) (deployment ecs-svc/4183377110762456205) deployment completed."
+            },
+            {
+                "id": "5ca457e1-3944-40c1-bb78-9fac80ed71dd",
+                "createdAt": "2026-04-22T11:46:00.293000+01:00",
+                "message": "(service cloudops-assistant-service, taskSet ecs-svc/6498039610588313329) has begun draining connections on 1 tasks."
+            },
+            {
+                "id": "6c61e7af-bbf8-4ff5-b0d6-c869408e55b5",
+                "createdAt": "2026-04-22T11:46:00.289000+01:00",
+                "message": "(service cloudops-assistant-service) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "02699572-7bd5-44e0-bf93-bbcd29b48194",
+                "createdAt": "2026-04-22T11:45:50.315000+01:00",
+                "message": "(service cloudops-assistant-service) has stopped 1 running tasks: (task 9e941d9d9271444a9a20c122dcfcde81)."
+            },
+            {
+                "id": "815b89fe-b978-4e74-b5ec-7124b1122f6d",
+                "createdAt": "2026-04-22T11:44:59.068000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "b86f770c-d425-4fd5-8705-26422bacab76",
+                "createdAt": "2026-04-22T11:44:08.206000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task d45f78329859457aa9defd2d5a3e9b27)."
+            },
+            {
+                "id": "ed2eb652-71e9-46ff-b70e-c9a89b4e08fc",
+                "createdAt": "2026-04-22T11:09:00.357000+01:00",
+                "message": "(service cloudops-assistant-service) has reached a steady state."
+            },
+            {
+                "id": "c4a6bad1-803a-4ca3-9386-6068675821e1",
+                "createdAt": "2026-04-22T11:09:00.356000+01:00",
+                "message": "(service cloudops-assistant-service) (deployment ecs-svc/6498039610588313329) deployment completed."
+            },
+            {
+                "id": "715d01eb-ec47-44ae-b218-34b1e3f55774",
+                "createdAt": "2026-04-22T11:07:58.318000+01:00",
+                "message": "(service cloudops-assistant-service, taskSet ecs-svc/6283012921869658998) has begun draining connections on 1 tasks."
+            },
+            {
+                "id": "bfa38aaa-4fe6-4cb9-b01c-0b414535de9a",
+                "createdAt": "2026-04-22T11:07:58.312000+01:00",
+                "message": "(service cloudops-assistant-service) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "878b750d-09b9-4ba8-8c4b-eb19f56aa1a5",
+                "createdAt": "2026-04-22T11:07:48.434000+01:00",
+                "message": "(service cloudops-assistant-service) has stopped 1 running tasks: (task 604da7b22318462381f8db2699e89db0)."
+            },
+            {
+                "id": "517ccdba-33c6-4bd1-a3bb-e1ce361d8af6",
+                "createdAt": "2026-04-22T11:06:57.692000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "102ccadb-db30-44cf-8692-996f54371150",
+                "createdAt": "2026-04-22T11:05:36.035000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 9e941d9d9271444a9a20c122dcfcde81)."
+            },
+            {
+                "id": "5a4dc590-a06b-4bc5-8522-1fa1204bcd47",
+                "createdAt": "2026-04-22T10:50:18.902000+01:00",
+                "message": "(service cloudops-assistant-service) has reached a steady state."
+            },
+            {
+                "id": "bd14bdb4-e77e-4a24-a115-c0dd33a67cac",
+                "createdAt": "2026-04-22T10:50:18.901000+01:00",
+                "message": "(service cloudops-assistant-service) (deployment ecs-svc/6283012921869658998) deployment completed."
+            },
+            {
+                "id": "14452e64-2aaa-4680-83f2-4f0edac86547",
+                "createdAt": "2026-04-22T10:49:18.443000+01:00",
+                "message": "(service cloudops-assistant-service, taskSet ecs-svc/5804266434204570147) has begun draining connections on 1 tasks."
+            },
+            {
+                "id": "09f8315b-126a-4e4b-bec6-dbd966002723",
+                "createdAt": "2026-04-22T10:49:18.421000+01:00",
+                "message": "(service cloudops-assistant-service) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "b8b2b31a-910f-4a3c-a028-a48128a8798d",
+                "createdAt": "2026-04-22T10:49:08.271000+01:00",
+                "message": "(service cloudops-assistant-service) has stopped 1 running tasks: (task b6d4ad7baf2647f3b983e81bc08b4f9d)."
+            },
+            {
+                "id": "18a51132-fd1e-4162-8675-0f24df0a83e5",
+                "createdAt": "2026-04-22T10:48:27.032000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "6d75e3e3-7c1e-4094-a735-393e0ae8bff9",
+                "createdAt": "2026-04-22T10:47:35.775000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 604da7b22318462381f8db2699e89db0)."
+            },
+            {
+                "id": "b4633b8d-e197-4dac-846b-12fa64e27466",
+                "createdAt": "2026-04-22T10:23:46.613000+01:00",
+                "message": "(service cloudops-assistant-service) has reached a steady state."
+            },
+            {
+                "id": "0e7dd9eb-9423-421f-b3a1-596c13a3c943",
+                "createdAt": "2026-04-22T10:23:46.612000+01:00",
+                "message": "(service cloudops-assistant-service) (deployment ecs-svc/5804266434204570147) deployment completed."
+            },
+            {
+                "id": "1a10ae27-9682-4137-8173-e6c635fd155d",
+                "createdAt": "2026-04-22T10:22:55.057000+01:00",
+                "message": "(service cloudops-assistant-service, taskSet ecs-svc/8801215752923677136) has begun draining connections on 1 tasks."
+            },
+            {
+                "id": "5bf682ad-570e-446f-a03e-42c62cc06186",
+                "createdAt": "2026-04-22T10:22:55.051000+01:00",
+                "message": "(service cloudops-assistant-service) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "10fa57ee-679f-443f-bdec-ec74761277c3",
+                "createdAt": "2026-04-22T10:22:44.203000+01:00",
+                "message": "(service cloudops-assistant-service) has stopped 1 running tasks: (task 9df7c0d65e3644bb8898811d9856fb94)."
+            },
+            {
+                "id": "fa26ee8b-1636-4262-a493-96e3ea207c32",
+                "createdAt": "2026-04-22T10:21:53.677000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "feb897e0-2c1d-45f7-8b77-aa97aa5511dd",
+                "createdAt": "2026-04-22T10:21:12.596000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task b6d4ad7baf2647f3b983e81bc08b4f9d)."
+            },
+            {
+                "id": "bb410460-5dd0-46c8-800b-df4609b2ccbd",
+                "createdAt": "2026-04-22T10:20:20.387000+01:00",
+                "message": "(service cloudops-assistant-service, taskSet ecs-svc/3371603981606683577) has begun draining connections on 1 tasks."
+            },
+            {
+                "id": "b2cde4ac-c168-42d2-bea1-1eb597648c44",
+                "createdAt": "2026-04-22T10:20:20.382000+01:00",
+                "message": "(service cloudops-assistant-service) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "11670e53-45e3-43a9-8a67-ff8b90a05a30",
+                "createdAt": "2026-04-22T10:19:59.360000+01:00",
+                "message": "(service cloudops-assistant-service) stopped 1 pending tasks."
+            },
+            {
+                "id": "0535fd55-c353-4d61-ab33-42d2087e57fe",
+                "createdAt": "2026-04-22T10:19:59.289000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "aedc1036-d684-4bc8-968d-cb4d4ce1ba58",
+                "createdAt": "2026-04-22T10:19:09.641000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task c5f9fc0e44f34eb9a947ebe5d3948dbf)."
+            },
+            {
+                "id": "65778c24-9a30-487b-b71e-2c81b377da17",
+                "createdAt": "2026-04-22T09:25:50.654000+01:00",
+                "message": "(service cloudops-assistant-service) has reached a steady state."
+            },
+            {
+                "id": "21c7b778-d3b1-4104-a592-a163a714d55a",
+                "createdAt": "2026-04-22T09:25:50.653000+01:00",
+                "message": "(service cloudops-assistant-service) (deployment ecs-svc/8801215752923677136) deployment completed."
+            },
+            {
+                "id": "625abc54-1797-4cc3-9b54-ade7d6e3bf01",
+                "createdAt": "2026-04-22T09:24:57.951000+01:00",
+                "message": "(service cloudops-assistant-service, taskSet ecs-svc/7125528186395171670) has begun draining connections on 1 tasks."
+            },
+            {
+                "id": "e18b274a-d88b-4f2e-86c2-350621f3cf8c",
+                "createdAt": "2026-04-22T09:24:57.946000+01:00",
+                "message": "(service cloudops-assistant-service) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "2c155ddc-a1f1-45f6-8c27-1c6d0142a13f",
+                "createdAt": "2026-04-22T09:24:47.975000+01:00",
+                "message": "(service cloudops-assistant-service) has stopped 1 running tasks: (task 7c9fe042862c44e498601e385e27d8cd)."
+            },
+            {
+                "id": "47e812cd-d6a8-4a0f-9717-6738e78b2bba",
+                "createdAt": "2026-04-22T09:23:56.977000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "4e3894b3-0bbd-4648-aa0d-c1ad8e58a8e2",
+                "createdAt": "2026-04-22T09:23:06.808000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 9df7c0d65e3644bb8898811d9856fb94)."
+            },
+            {
+                "id": "016ca8be-caf1-4832-b461-1f304c739c2c",
+                "createdAt": "2026-04-22T09:06:28.889000+01:00",
+                "message": "(service cloudops-assistant-service) has reached a steady state."
+            },
+            {
+                "id": "caefe63c-8b69-449e-b358-f6bbbf3774e7",
+                "createdAt": "2026-04-22T09:06:28.888000+01:00",
+                "message": "(service cloudops-assistant-service) (deployment ecs-svc/7125528186395171670) deployment completed."
+            },
+            {
+                "id": "4d0eb5ad-8eca-4a62-9fc4-b2c3d76298b9",
+                "createdAt": "2026-04-22T09:05:57.990000+01:00",
+                "message": "(service cloudops-assistant-service) registered 1 targets in (target-group arn:aws:elasticloadbalancing:us-east-1:603108265570:targetgroup/cloudops-assistant-tg/1caf8492ef2dcb4b)"
+            },
+            {
+                "id": "1757702e-966f-4cd0-9f8d-a022ce36f717",
+                "createdAt": "2026-04-22T09:05:46.579000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "56f31643-5ff1-44ef-938e-a932749489be",
+                "createdAt": "2026-04-22T09:05:07.479000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 7c9fe042862c44e498601e385e27d8cd)."
+            },
+            {
+                "id": "5039a1d1-2e67-42e8-8d50-2bfce5f65fd3",
+                "createdAt": "2026-04-22T09:04:57.261000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 24fa57f093d945c6b0b5700f68f2fb45)."
+            },
+            {
+                "id": "21adf073-9734-46fc-ae88-9cd5f8b714d6",
+                "createdAt": "2026-04-22T09:00:10.567000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "ee92d0d3-f4f3-44d9-96a2-389a8d9bab22",
+                "createdAt": "2026-04-22T08:59:42.487000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 6876a9d3f2184e8cab6cacef7b0106b5)."
+            },
+            {
+                "id": "43cafb59-4393-4b83-b553-d05da828755e",
+                "createdAt": "2026-04-22T08:54:31.316000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "311557fa-8ec4-40fd-977e-a50ae831efe9",
+                "createdAt": "2026-04-22T08:54:03.634000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task eb26593d24ce46efb17bdf5d46ab9ecc)."
+            },
+            {
+                "id": "ea5e1c7d-fb71-4108-8131-86484b5b0b15",
+                "createdAt": "2026-04-22T08:53:32.882000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "64cb9738-6448-428a-a951-480b4e4d71ff",
+                "createdAt": "2026-04-22T08:53:04.027000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 77fce3bee80e4603a8dddd72f4abc8a2)."
+            },
+            {
+                "id": "81431982-1068-460e-a1f2-3f0d1ca8177c",
+                "createdAt": "2026-04-22T08:52:32.466000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "88d5241b-9a0d-4301-a3b2-612184db2ebf",
+                "createdAt": "2026-04-22T08:52:03.507000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task ac089ef04942403cb0fce037058af3c9)."
+            },
+            {
+                "id": "4f9cc2bd-ff7b-4874-b88e-81de3ca8e9d8",
+                "createdAt": "2026-04-22T08:51:30.950000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "69d0dbeb-9098-4858-aae7-bfe631d7f2f5",
+                "createdAt": "2026-04-22T08:51:03.120000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task c0243ff83a9145d7adb01ab0024f8063)."
+            },
+            {
+                "id": "0d4c123d-870e-41f7-a440-18e9f1cb985c",
+                "createdAt": "2026-04-22T08:50:30.555000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "c9e142c8-323c-4ff0-8d90-583cde90644a",
+                "createdAt": "2026-04-22T08:50:01.836000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 9c9032bff31b4678932469f6d753a889)."
+            },
+            {
+                "id": "f1390aa1-2cb7-4ebd-a19b-bc92fdf54990",
+                "createdAt": "2026-04-22T08:49:30.465000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "51ccc21e-69ef-4dac-8653-94ef941b4d6f",
+                "createdAt": "2026-04-22T08:49:02.490000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 445b5bbccb634d1c9fc2fd89de84f483)."
+            },
+            {
+                "id": "c8bbac30-8abf-4087-a572-0c738c8c107e",
+                "createdAt": "2026-04-22T08:48:31.628000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "c32ab486-b048-4072-9970-5fa3dbde1ed1",
+                "createdAt": "2026-04-22T08:48:04.018000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 7082d1d03d714f9786186b18866cb842)."
+            },
+            {
+                "id": "598443f6-8412-4b43-8052-9d6387b23318",
+                "createdAt": "2026-04-22T08:47:32.800000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "5f689225-46a3-41a7-a4d4-0239da01a7ff",
+                "createdAt": "2026-04-22T08:46:55.430000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 622da6a033d944d9ac4bce9d99b6cb48)."
+            },
+            {
+                "id": "0230975b-696d-4a32-933d-296e101e1157",
+                "createdAt": "2026-04-22T08:46:24.115000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "94bfe4b9-ac38-4350-9c97-d8fc7a824426",
+                "createdAt": "2026-04-22T08:45:57.201000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task ae50033fdcce4f3ca0ce27e75aef0d76)."
+            },
+            {
+                "id": "32cdc13f-78ab-4082-b6eb-c5c4ef7ea7a6",
+                "createdAt": "2026-04-22T08:45:24.431000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "fa33d56a-a2cf-40d4-b1b1-8774bfd39323",
+                "createdAt": "2026-04-22T08:44:51.219000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task f65ed40e8c1b43b3ae6862cb9778075f)."
+            },
+            {
+                "id": "8a883a5a-bf83-4d2f-895d-1c9289133096",
+                "createdAt": "2026-04-22T08:44:18.643000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "162211cd-f518-4696-94ce-f7d54cfb4690",
+                "createdAt": "2026-04-22T08:43:50.926000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 57acd2260dce42908fca435d0a0c4063)."
+            },
+            {
+                "id": "a635524c-6556-4243-97b9-a2d1cfedd978",
+                "createdAt": "2026-04-22T08:43:19.214000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "90c84c75-cee5-43f7-a781-1595a146d73a",
+                "createdAt": "2026-04-22T08:42:51.673000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 9ffc51597f734b52abbfe7a02e16bebf)."
+            },
+            {
+                "id": "e889df6e-1819-4360-9b3e-571e32b12b13",
+                "createdAt": "2026-04-22T08:42:19.392000+01:00",
+                "message": "(service cloudops-assistant-service) was unable to place a task. Reason: CannotPullContainerError: pull image manifest has been retried 1 time(s): failed to resolve ref 123456789012.dkr.ecr.us-east-1.amazonaws.com/cloudops-assistant:latest: unexpected status from HEAD request to https://123456789012.dkr.ecr.us-east-1.amazonaws.com/v2/cloudops-assistant/manifests/latest: 403 Forbidden."
+            },
+            {
+                "id": "f80fcd89-b21b-432b-969c-e562636a674d",
+                "createdAt": "2026-04-22T08:41:49.508000+01:00",
+                "message": "(service cloudops-assistant-service) has started 1 tasks: (task 5bb05833300e464fa05fab6fa99d06cf)."
+            }
+        ],
+        "createdAt": "2026-04-22T08:41:32.681000+01:00",
+        "placementConstraints": [],
+        "placementStrategy": [],
+        "networkConfiguration": {
+            "awsvpcConfiguration": {
+                "subnets": [
+                    "subnet-096ad404115c60073",
+                    "subnet-080cbb322b43a125b"
+                ],
+                "securityGroups": [
+                    "sg-08eb5191ce580fac3"
+                ],
+                "assignPublicIp": "ENABLED"
+            }
+        },
+        "healthCheckGracePeriodSeconds": 0,
+        "schedulingStrategy": "REPLICA",
+        "deploymentController": {
+            "type": "ECS"
+        },
+        "createdBy": "arn:aws:iam::603108265570:user/terraform",
+        "enableECSManagedTags": false,
+        "propagateTags": "NONE",
+        "enableExecuteCommand": false,
+        "availabilityZoneRebalancing": "DISABLED"
+    }
+}
