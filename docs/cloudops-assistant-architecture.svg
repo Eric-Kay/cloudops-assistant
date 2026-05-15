@@ -1,0 +1,322 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <style>
+      .title{font:700 30px Arial,Helvetica,sans-serif;fill:#091b54}
+      .subtitle{font:700 17px Arial,Helvetica,sans-serif;fill:#496189}
+      .section{font:700 14px Arial,Helvetica,sans-serif;fill:#0b1f66}
+      .label{font:700 13px Arial,Helvetica,sans-serif;fill:#111827}
+      .small{font:12px Arial,Helvetica,sans-serif;fill:#111827}
+      .tiny{font:10px Arial,Helvetica,sans-serif;fill:#111827}
+      .muted{font:11px Arial,Helvetica,sans-serif;fill:#475569}
+      .box{fill:#fff;stroke:#1d4ed8;stroke-width:1.2;rx:8}
+      .blueBox{fill:#fbfdff;stroke:#2563eb;stroke-width:1.5;rx:8}
+      .greenBox{fill:#fbfffb;stroke:#15803d;stroke-width:1.4;rx:8}
+      .orangeBox{fill:#fffaf6;stroke:#ea580c;stroke-width:1.4;rx:8}
+      .purpleBox{fill:#fbf8ff;stroke:#7c3aed;stroke-width:1.4;rx:8}
+      .soft{fill:#f8fafc;stroke:#94a3b8;stroke-width:1;rx:8}
+      .appZone{fill:#fbfdff;stroke:#2563eb;stroke-width:1.5;rx:8}
+      .flow{stroke:#0f172a;stroke-width:1.8;fill:none;marker-end:url(#arrow)}
+      .appFlow{stroke:#2563eb;stroke-width:2;fill:none;marker-end:url(#blueArrow)}
+      .feedback{stroke:#111827;stroke-width:1.5;stroke-dasharray:6 5;fill:none;marker-end:url(#arrow)}
+      .metrics{stroke:#f97316;stroke-width:1.8;stroke-dasharray:7 5;fill:none;marker-end:url(#orangeArrow)}
+      .iconBlue{fill:#2563eb}
+      .iconGreen{fill:#16a34a}
+      .iconOrange{fill:#f97316}
+      .iconRed{fill:#dc2626}
+      .iconNavy{fill:#0b1f66}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0f172a"/>
+    </marker>
+    <marker id="blueArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <marker id="orangeArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f97316"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#64748b" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#ffffff"/>
+
+  <text x="800" y="35" text-anchor="middle" class="title">CLOUDOPS ASSISTANT - CLOUD-NATIVE AI OPS ARCHITECTURE</text>
+  <text x="800" y="65" text-anchor="middle" class="subtitle">Automated  •  Secure  •  Scalable  •  Observable  •  RAG Driven</text>
+
+  <!-- Developer and repository -->
+  <rect x="28" y="76" width="135" height="238" class="blueBox" filter="url(#shadow)"/>
+  <text x="95" y="102" text-anchor="middle" class="section">DEVELOPERS</text>
+  <circle cx="95" cy="135" r="17" class="iconNavy"/>
+  <circle cx="72" cy="151" r="12" class="iconNavy"/>
+  <circle cx="118" cy="151" r="12" class="iconNavy"/>
+  <rect x="65" y="181" width="60" height="46" rx="4" fill="#1f2937" stroke="#0f172a"/>
+  <text x="95" y="211" text-anchor="middle" font-size="24" fill="#fff" font-family="Consolas,monospace">&lt;/&gt;</text>
+  <text x="95" y="254" text-anchor="middle" class="label">Code Commit</text>
+  <text x="95" y="274" text-anchor="middle" class="label">&amp; Push</text>
+
+  <rect x="200" y="76" width="145" height="238" class="blueBox" filter="url(#shadow)"/>
+  <circle cx="272" cy="112" r="22" fill="#111827"/>
+  <text x="272" y="147" text-anchor="middle" class="label">GitHub</text>
+  <text x="272" y="170" text-anchor="middle" class="tiny">Repository</text>
+  <text x="228" y="198" class="tiny">app/</text>
+  <text x="228" y="218" class="tiny">frontend/</text>
+  <text x="228" y="238" class="tiny">terraform/</text>
+  <text x="228" y="258" class="tiny">infra/</text>
+  <text x="228" y="278" class="tiny">README.md</text>
+  <path d="M216 188 h10 v10 h-10 z M216 208 h10 v10 h-10 z M216 228 h10 v10 h-10 z M216 248 h10 v10 h-10 z M216 268 h10 v10 h-10 z" fill="none" stroke="#0b1f66"/>
+
+  <!-- CI/CD pipeline -->
+  <rect x="380" y="88" width="950" height="235" class="blueBox" filter="url(#shadow)"/>
+  <text x="855" y="111" text-anchor="middle" class="section">CI/CD PIPELINE - GITHUB ACTIONS</text>
+  <line x1="430" y1="121" x2="1285" y2="121" stroke="#2563eb" stroke-width="1.2"/>
+
+  <rect x="398" y="146" width="118" height="132" class="box"/>
+  <text x="457" y="168" text-anchor="middle" class="label">Checkout</text>
+  <circle cx="457" cy="202" r="18" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <path d="M446 202 l8 8 l16 -20" fill="none" stroke="#16a34a" stroke-width="4"/>
+  <text x="457" y="237" text-anchor="middle" class="tiny">Pull latest code</text>
+  <text x="457" y="253" text-anchor="middle" class="tiny">from GitHub</text>
+
+  <rect x="542" y="146" width="124" height="132" class="box"/>
+  <text x="604" y="168" text-anchor="middle" class="label">Install &amp; Test</text>
+  <rect x="585" y="190" width="38" height="32" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <path d="M585 190 l19 -12 l19 12 M604 178 v44" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <text x="604" y="237" text-anchor="middle" class="tiny">pip install</text>
+  <text x="604" y="253" text-anchor="middle" class="tiny">Terraform checks</text>
+
+  <rect x="696" y="146" width="124" height="132" class="box"/>
+  <text x="758" y="168" text-anchor="middle" class="label">Code Quality</text>
+  <rect x="742" y="188" width="28" height="40" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3"/>
+  <circle cx="776" cy="226" r="10" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+  <line x1="783" y1="233" x2="793" y2="243" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="758" y="237" text-anchor="middle" class="tiny">FastAPI app</text>
+  <text x="758" y="253" text-anchor="middle" class="tiny">imports cleanly</text>
+
+  <rect x="850" y="146" width="124" height="132" class="box"/>
+  <text x="912" y="168" text-anchor="middle" class="label">Security</text>
+  <path d="M912 185 l20 9 v21 c0 15 -11 27 -20 31 c-9 -4 -20 -16 -20 -31 v-21 z" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="912" y="237" text-anchor="middle" class="tiny">Secrets loaded</text>
+  <text x="912" y="253" text-anchor="middle" class="tiny">at runtime</text>
+
+  <rect x="1004" y="146" width="124" height="132" class="box"/>
+  <text x="1066" y="168" text-anchor="middle" class="label">Build Images</text>
+  <rect x="1033" y="202" width="60" height="30" rx="7" fill="#0ea5e9"/>
+  <rect x="1042" y="190" width="10" height="10" fill="#0ea5e9"/>
+  <rect x="1058" y="190" width="10" height="10" fill="#0ea5e9"/>
+  <rect x="1074" y="190" width="10" height="10" fill="#0ea5e9"/>
+  <text x="1066" y="237" text-anchor="middle" class="tiny">API + UI Docker</text>
+  <text x="1066" y="253" text-anchor="middle" class="tiny">containers</text>
+
+  <rect x="1158" y="146" width="124" height="132" class="box"/>
+  <text x="1220" y="168" text-anchor="middle" class="label">Deploy Trigger</text>
+  <circle cx="1220" cy="205" r="20" class="iconGreen"/>
+  <polygon points="1214,193 1235,205 1214,217" fill="#fff"/>
+  <text x="1220" y="237" text-anchor="middle" class="tiny">Update ECS task</text>
+  <text x="1220" y="253" text-anchor="middle" class="tiny">definitions</text>
+
+  <path d="M163 195 H200" class="flow"/>
+  <path d="M345 195 H380" class="flow"/>
+  <path d="M516 212 H542" class="flow"/>
+  <path d="M666 212 H696" class="flow"/>
+  <path d="M820 212 H850" class="flow"/>
+  <path d="M974 212 H1004" class="flow"/>
+  <path d="M1128 212 H1158" class="flow"/>
+
+  <rect x="1415" y="92" width="150" height="170" class="orangeBox" filter="url(#shadow)"/>
+  <text x="1490" y="119" text-anchor="middle" class="label">Amazon ECR</text>
+  <text x="1490" y="137" text-anchor="middle" class="tiny">Private Registry</text>
+  <polygon points="1490,164 1525,183 1525,224 1490,243 1455,224 1455,183" class="iconOrange"/>
+  <path d="M1490 164 v79 M1455 183 l35 20 l35 -20" stroke="#fff" fill="none" stroke-width="2"/>
+  <path d="M1282 212 H1415" class="flow"/>
+
+  <!-- Terraform and infrastructure lane -->
+  <rect x="28" y="348" width="210" height="365" class="purpleBox" filter="url(#shadow)"/>
+  <text x="133" y="372" text-anchor="middle" class="section">INFRASTRUCTURE AS CODE</text>
+  <text x="133" y="391" text-anchor="middle" class="section">(TERRAFORM)</text>
+  <path d="M66 422 l24 14 v28 l-24 -14 z M92 436 l24 -14 v28 l-24 14 z M92 468 l24 -14 v28 l-24 14 z" fill="#6d28d9"/>
+  <text x="134" y="448" text-anchor="middle" class="label">Terraform</text>
+  <text x="72" y="491" class="label">Provision</text>
+  <text x="62" y="526" class="small">• VPC and subnets</text>
+  <text x="62" y="548" class="small">• ALB and target groups</text>
+  <text x="62" y="570" class="small">• ECS Fargate services</text>
+  <text x="62" y="592" class="small">• ECR repositories</text>
+  <text x="62" y="614" class="small">• S3 uploads bucket</text>
+  <text x="62" y="636" class="small">• Secrets Manager</text>
+  <text x="62" y="658" class="small">• IAM roles and policies</text>
+  <text x="62" y="680" class="small">• CloudWatch Logs</text>
+
+  <path d="M95 314 V348" class="flow"/>
+
+  <rect x="330" y="360" width="178" height="190" class="greenBox" filter="url(#shadow)"/>
+  <text x="419" y="386" text-anchor="middle" fill="#166534" font-weight="700" font-size="14" font-family="Arial,Helvetica,sans-serif">TERRAFORM MODULE</text>
+  <path d="M356 422 h26 l10 10 v22 h-36 z" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
+  <text x="402" y="434" class="tiny">terraform/main.tf</text>
+  <text x="402" y="452" class="tiny">task-definitions/</text>
+  <path d="M356 482 h26 l10 10 v22 h-36 z" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
+  <text x="402" y="494" class="tiny">variables.tf</text>
+  <text x="402" y="512" class="tiny">outputs.tf</text>
+
+  <rect x="540" y="360" width="160" height="190" class="greenBox" filter="url(#shadow)"/>
+  <text x="620" y="386" text-anchor="middle" class="label">PUBLIC ENTRYPOINT</text>
+  <text x="620" y="404" text-anchor="middle" class="label">(ALB)</text>
+  <rect x="587" y="430" width="66" height="50" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+  <line x1="598" y1="447" x2="642" y2="447" stroke="#2563eb" stroke-width="4"/>
+  <line x1="598" y1="464" x2="642" y2="464" stroke="#2563eb" stroke-width="4"/>
+  <text x="620" y="507" text-anchor="middle" class="tiny">HTTP :80</text>
+  <text x="620" y="525" text-anchor="middle" class="tiny">Path routing</text>
+
+  <rect x="735" y="360" width="165" height="190" class="greenBox" filter="url(#shadow)"/>
+  <text x="817" y="386" text-anchor="middle" class="label">ECS CLUSTER</text>
+  <text x="817" y="404" text-anchor="middle" class="label">(FARGATE)</text>
+  <circle cx="817" cy="454" r="34" fill="#2563eb"/>
+  <path d="M817 420 v68 M783 454 h68 M793 430 l48 48 M841 430 l-48 48" stroke="#fff" stroke-width="3"/>
+  <text x="817" y="510" text-anchor="middle" class="tiny">cloudops-assistant</text>
+  <text x="817" y="528" text-anchor="middle" class="tiny">cluster</text>
+
+  <rect x="935" y="360" width="165" height="190" class="greenBox" filter="url(#shadow)"/>
+  <text x="1017" y="386" text-anchor="middle" class="label">TASK DEFINITIONS</text>
+  <text x="1017" y="404" text-anchor="middle" class="label">(LOCAL)</text>
+  <text x="962" y="435" class="tiny">• app.json.tpl</text>
+  <text x="962" y="456" class="tiny">• ui.json.tpl</text>
+  <text x="962" y="477" class="tiny">• CPU / memory</text>
+  <text x="962" y="498" class="tiny">• env vars</text>
+  <text x="962" y="519" class="tiny">• runtime secrets</text>
+
+  <rect x="1135" y="360" width="165" height="190" class="greenBox" filter="url(#shadow)"/>
+  <text x="1217" y="386" text-anchor="middle" class="label">DEPLOY TO ECS</text>
+  <circle cx="1217" cy="451" r="34" fill="#2563eb"/>
+  <path d="M1217 417 v68 M1183 451 h68 M1193 427 l48 48 M1241 427 l-48 48" stroke="#fff" stroke-width="3"/>
+  <text x="1217" y="507" text-anchor="middle" class="tiny">ECS services</text>
+  <text x="1217" y="525" text-anchor="middle" class="tiny">API + UI</text>
+
+  <path d="M238 455 H330" class="flow"/>
+  <path d="M508 455 H540" class="flow"/>
+  <path d="M700 455 H735" class="flow"/>
+  <path d="M900 455 H935" class="flow"/>
+  <path d="M1100 455 H1135" class="flow"/>
+  <path d="M1220 278 v48 h-102 v34" class="feedback"/>
+  <path d="M1490 262 v74 h-218 v24" class="feedback"/>
+
+  <!-- Application zone -->
+  <rect x="275" y="580" width="925" height="325" class="appZone" filter="url(#shadow)"/>
+  <text x="737" y="606" text-anchor="middle" class="section">AWS ECS FARGATE - CLOUDOPS ASSISTANT SERVICES</text>
+
+  <circle cx="320" cy="642" r="14" class="iconNavy"/>
+  <circle cx="300" cy="657" r="11" class="iconNavy"/>
+  <circle cx="340" cy="657" r="11" class="iconNavy"/>
+  <text x="320" y="690" text-anchor="middle" class="tiny">Users</text>
+  <path d="M360 654 H560" class="appFlow"/>
+  <text x="460" y="644" text-anchor="middle" class="tiny">HTTP / HTTPS</text>
+
+  <rect x="575" y="625" width="330" height="50" class="greenBox"/>
+  <text x="740" y="646" text-anchor="middle" class="label">Application Load Balancer</text>
+  <text x="740" y="664" text-anchor="middle" class="tiny">Default route to UI • API route to backend</text>
+
+  <rect x="325" y="700" width="130" height="98" class="box"/>
+  <text x="390" y="723" text-anchor="middle" class="label">streamlit-ui</text>
+  <text x="390" y="741" text-anchor="middle" class="tiny">(frontend)</text>
+  <circle cx="390" cy="766" r="18" fill="#ff4b4b"/>
+  <text x="390" y="790" text-anchor="middle" class="tiny">Port: 8501</text>
+
+  <rect x="515" y="700" width="130" height="98" class="box"/>
+  <text x="580" y="723" text-anchor="middle" class="label">fastapi-api</text>
+  <text x="580" y="741" text-anchor="middle" class="tiny">(backend)</text>
+  <circle cx="580" cy="766" r="18" fill="#059669"/>
+  <text x="580" y="790" text-anchor="middle" class="tiny">Port: app</text>
+
+  <rect x="705" y="700" width="130" height="98" class="box"/>
+  <text x="770" y="723" text-anchor="middle" class="label">auth</text>
+  <text x="770" y="741" text-anchor="middle" class="tiny">JWT service</text>
+  <path d="M770 750 l19 8 v18 c0 12 -10 22 -19 26 c-9 -4 -19 -14 -19 -26 v-18 z" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="770" y="790" text-anchor="middle" class="tiny">Bearer tokens</text>
+
+  <rect x="895" y="700" width="130" height="98" class="box"/>
+  <text x="960" y="723" text-anchor="middle" class="label">document</text>
+  <text x="960" y="741" text-anchor="middle" class="tiny">upload</text>
+  <path d="M940 770 h40 v22 h-40 z M950 760 h20 l10 10 h-40 z" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
+  <text x="960" y="790" text-anchor="middle" class="tiny">txt / md / log</text>
+
+  <rect x="1045" y="700" width="130" height="98" class="box"/>
+  <text x="1110" y="723" text-anchor="middle" class="label">chat + RAG</text>
+  <text x="1110" y="741" text-anchor="middle" class="tiny">rank + prompt</text>
+  <circle cx="1110" cy="768" r="20" fill="#7c3aed"/>
+  <text x="1110" y="775" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial,Helvetica,sans-serif">AI</text>
+  <text x="1110" y="790" text-anchor="middle" class="tiny">Bedrock call</text>
+
+  <path d="M740 675 v25" class="appFlow"/>
+  <path d="M455 749 H515" class="appFlow"/>
+  <path d="M645 749 H705" class="appFlow"/>
+  <path d="M835 749 H895" class="appFlow"/>
+  <path d="M1025 749 H1045" class="appFlow"/>
+
+  <rect x="290" y="820" width="895" height="70" fill="#f8fbff" stroke="#2563eb" stroke-dasharray="4 4" rx="8"/>
+  <text x="737" y="840" text-anchor="middle" class="section">AWS MANAGED BACKING SERVICES</text>
+  <text x="382" y="866" text-anchor="middle" class="label">S3</text>
+  <text x="382" y="882" text-anchor="middle" class="tiny">Uploads bucket</text>
+  <text x="555" y="866" text-anchor="middle" class="label">Bedrock</text>
+  <text x="555" y="882" text-anchor="middle" class="tiny">Claude model</text>
+  <text x="740" y="866" text-anchor="middle" class="label">Secrets Manager</text>
+  <text x="740" y="882" text-anchor="middle" class="tiny">JWT + password</text>
+  <text x="925" y="866" text-anchor="middle" class="label">DynamoDB</text>
+  <text x="925" y="882" text-anchor="middle" class="tiny">Feedback table</text>
+  <text x="1090" y="866" text-anchor="middle" class="label">CloudWatch</text>
+  <text x="1090" y="882" text-anchor="middle" class="tiny">Task logs</text>
+
+  <path d="M960 798 V820" class="appFlow"/>
+  <path d="M1110 798 C1110 814 560 806 555 820" class="appFlow"/>
+  <path d="M770 798 C770 812 740 806 740 820" class="appFlow"/>
+  <path d="M580 798 C580 815 920 806 925 820" class="appFlow"/>
+  <path d="M580 798 C580 815 1090 806 1090 820" class="metrics"/>
+
+  <!-- Monitoring side stack -->
+  <rect x="1415" y="370" width="155" height="405" class="orangeBox" filter="url(#shadow)"/>
+  <text x="1492" y="400" text-anchor="middle" fill="#dc2626" font-weight="700" font-size="14" font-family="Arial,Helvetica,sans-serif">OBSERVABILITY</text>
+  <rect x="1432" y="425" width="122" height="82" class="orangeBox"/>
+  <circle cx="1460" cy="466" r="18" class="iconOrange"/>
+  <text x="1500" y="458" class="tiny">CloudWatch</text>
+  <text x="1500" y="475" class="tiny">Logs</text>
+  <text x="1500" y="492" class="tiny">Retention 14d</text>
+  <rect x="1432" y="535" width="122" height="82" class="orangeBox"/>
+  <circle cx="1460" cy="576" r="18" class="iconRed"/>
+  <text x="1500" y="568" class="tiny">Health checks</text>
+  <text x="1500" y="585" class="tiny">/health</text>
+  <text x="1500" y="602" class="tiny">/ UI root</text>
+  <rect x="1432" y="645" width="122" height="82" class="orangeBox"/>
+  <circle cx="1460" cy="686" r="18" class="iconBlue"/>
+  <text x="1500" y="678" class="tiny">ALB</text>
+  <text x="1500" y="695" class="tiny">Target groups</text>
+  <text x="1500" y="712" class="tiny">Traffic checks</text>
+
+  <path d="M1200 742 H1415" class="metrics"/>
+  <path d="M1300 455 H1415" class="metrics"/>
+
+  <!-- Legend -->
+  <rect x="1378" y="805" width="185" height="150" class="soft" filter="url(#shadow)"/>
+  <text x="1470" y="830" text-anchor="middle" class="label">LEGEND</text>
+  <line x1="1405" y1="852" x2="1448" y2="852" class="flow"/>
+  <text x="1460" y="857" class="tiny">Code / Flow</text>
+  <line x1="1405" y1="880" x2="1448" y2="880" class="appFlow"/>
+  <text x="1460" y="885" class="tiny">Application Traffic</text>
+  <line x1="1405" y1="908" x2="1448" y2="908" class="feedback"/>
+  <text x="1460" y="913" class="tiny">Feedback / Trigger</text>
+  <line x1="1405" y1="936" x2="1448" y2="936" class="metrics"/>
+  <text x="1460" y="941" class="tiny">Monitoring / Metrics</text>
+
+  <!-- End-to-end workflow -->
+  <rect x="58" y="920" width="1240" height="62" class="soft" filter="url(#shadow)"/>
+  <text x="678" y="941" text-anchor="middle" class="section">END TO END WORKFLOW</text>
+  <text x="100" y="963" class="tiny">1. Developer push</text>
+  <path d="M208 958 H245" class="flow"/>
+  <text x="260" y="963" class="tiny">2. GitHub OIDC deploy</text>
+  <path d="M390 958 H427" class="flow"/>
+  <text x="442" y="963" class="tiny">3. Build Docker images</text>
+  <path d="M585 958 H622" class="flow"/>
+  <text x="638" y="963" class="tiny">4. Push to ECR</text>
+  <path d="M745 958 H782" class="flow"/>
+  <text x="798" y="963" class="tiny">5. Terraform deploys ECS</text>
+  <path d="M955 958 H992" class="flow"/>
+  <text x="1008" y="963" class="tiny">6. Users upload and ask</text>
+  <path d="M1165 958 H1202" class="flow"/>
+  <text x="1218" y="963" class="tiny">7. Logs and health checks</text>
+</svg>
